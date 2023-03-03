@@ -1,0 +1,15 @@
+<div id="map" style="height: 95%"></div>
+
+<div id="form">
+	<!-- 
+<input placeholder="Google Sheet URL" id="sheetUrl" [(ngModel)]="sheetUrl"
+   (change)="valueSelected()">
+-->
+	<select
+    placeholder="Column to filter"
+    [(ngModel)]="selectedColumnOption"
+    (change)="valueSelected()"
+  >
+    <option *ngFor="let column of columns">{{ column.id }}</option>
+  </select>
+</div>
