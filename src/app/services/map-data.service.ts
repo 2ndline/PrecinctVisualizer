@@ -23,4 +23,12 @@ export class MapDataService {
       characterAttributesMapping
     );
   }
+
+  public fetchDataFromSoS() {
+    //TODO
+    /***
+     * 1) fetch from SOS static page the results
+     * 2) format results to match PrecinctVoterData
+     */
+  }
 }

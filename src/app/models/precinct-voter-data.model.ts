@@ -11,6 +11,16 @@ export const characterAttributesMapping = {
   percentBlack: 'B%',
 };
 
+/**
+ * TODO:
+ * make this more dynaic to be precint, date, office, candidateIndex, candidateResult
+ * candidateResult : number[];
+ * candidateIndex : number;
+ * office: string;
+ *
+ * Candidate 1 = candidateResult[1], etc.
+ *
+ */
 export interface PrecinctVoterData {
   precinct: string;
   giarrussoPercent: number;

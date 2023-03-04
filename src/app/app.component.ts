@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
-import 'leaflet.markercluster';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { PrecinctVoterData } from './models/precinct-voter-data.model';
@@ -8,6 +7,14 @@ import { Precinct } from './models/precinct.model';
 import { MapDataService } from './services/map-data.service';
 import { MapColumn } from './models/mapColumn';
 import { DistrictAPrecincts } from './models/districtAprecincts';
+
+/***
+ * TODO:
+ * 1) prompt for date of election, race, pull results from sec of state office static pages
+ * 2) refactor logic, cleanup
+ * 3) remove API key (don't really care)
+ * 4)
+ */
 
 @Component({
   selector: 'my-app',
@@ -52,6 +59,7 @@ export class AppComponent implements OnInit {
   public precinctUrl: string =
     'https://opendata.arcgis.com/datasets/ca0f4261673541d798551f5cddc54bd6_0.geojson';
 
+  //TODO remove
   public sheetUrl = '1syXU60xTSCtHoePb7Yobh892SfdNTlYp1zuxyLPOtQg';
 
   drawMap() {
