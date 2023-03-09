@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as L from 'leaflet';
+import L from 'leaflet';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { PrecinctVoterData } from './models/precinct-voter-data.model';
