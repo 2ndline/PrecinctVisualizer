@@ -10,7 +10,7 @@
 //                 Hugo Sales <https://github.com/someonewithpc>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
-
+declare module 'leaflet';
 export as namespace L;
 
 import * as geojson from 'geojson';
