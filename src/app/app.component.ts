@@ -66,11 +66,11 @@ export class AppComponent implements OnInit {
   drawMap() {
     var selectedColumn = this.selectedColumn;
     var prs = this.precincts;
-    let eachFunc = function (f, l) {
+    let eachFunc = function (f: any, l: any) {
       const precinctId = f.properties.PRECINCTID;
-      let pr: Precinct = prs[precinctId];
-      if (!pr) {
-        pr = { id: precinctId };
+      let pr = {} as Precinct;
+      if (prs[precinctId] != null) {
+        pr = prs[precinctId];
       }
       pr.feature = f;
       pr.layer = l;
@@ -147,7 +147,11 @@ export class AppComponent implements OnInit {
           this.total = voterData;
           this.columns = [];
           Object.keys(voterData).forEach((column) => {
-            var percent = voterData[column].slice(-1) === '%';
+            let percent = false;
+            if (typeof voterData[column] === 'string') {
+              percent = true;
+            }
+
             var col: MapColumn = {
               id: column,
               columnType:
