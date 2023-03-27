@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { forkJoin, Observable } from 'rxjs';
 import { IDates, IElection } from '../models/precinct-voter-data.model';
@@ -19,7 +19,14 @@ export class SOSDataService {
     'https://voterportal.sos.la.gov/ElectionResults/ElectionResults/Data?blob=XX/VotesParish/Votes_36.htm';
 
   public fetchDatesFromSOS(): Observable<IDates> {
-    return this.http.get<IDates>(this.datesUrl);
+    const headerDict = {
+      'Access-Control-Request-Method': 'GET',
+      'Access-Control-Allow-Origin': '*',
+    };
+    const requestOptions = {
+      headers: new HttpHeaders(headerDict),
+    };
+    return this.http.get<IDates>(this.datesUrl, requestOptions);
   }
 
   public fetchCandidatesFromSOS(electionDate: string): Observable<IElection> {
