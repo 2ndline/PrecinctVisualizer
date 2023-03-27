@@ -1,15 +1,23 @@
 <div id="map" style="height: 95%"></div>
 
 <div id="form">
-	<!-- 
+  <!-- 
 <input placeholder="Google Sheet URL" id="sheetUrl" [(ngModel)]="sheetUrl"
    (change)="valueSelected()">
 -->
-	<select
-    placeholder="Column to filter"
-    [(ngModel)]="selectedColumnOption"
-    (change)="valueSelected()"
+  <select
+    placeholder="Election date"
+    [(ngModel)]="selectedElection"
+    (change)="dateValueSelected()"
   >
-    <option *ngFor="let column of columns">{{ column.id }}</option>
+    <option *ngFor="let date of electionDates">{{ date.ElectionDate }}</option>
   </select>
+
+  <select
+  placeholder="Election race"
+  [(ngModel)]="selectedRace"
+  (change)="raceValueSelected()"
+>
+  <option *ngFor="let race of electionRaces">{{ race.ElectionDate }}</option>
+</select>
 </div>
