@@ -31,11 +31,13 @@ export class AppComponent implements OnInit {
   precintGeoJson: L.GeoJSON<any>;
 
   private dataLoaded: BehaviorSubject<boolean> = new BehaviorSubject(false);
+
   ngOnInit() {
     this.init();
   }
 
   init() {
+    //create subscription for dataLoaded to fire up the map
     this.dataLoaded.subscribe((e) => {
       if (e) {
         this.map = new L.Map('map', {
@@ -52,15 +54,23 @@ export class AppComponent implements OnInit {
         this.setPrecinctLayers();
       }
     });
-    this.dataService.fetchDatesFromSOS().subscribe((results) => {
-      this.selectedElection = results.DefaultElectionDate;
-      this.electionDates = results.Date;
-    });
+    //get the election dates
+    this.dataService.fetchDatesFromSOS().subscribe(
+      (results) => {
+        console.log(results);
+        this.selectedElection = results.DefaultElectionDate;
+        this.electionDates = results.Date;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   public precinctUrl: string =
     'https://opendata.arcgis.com/datasets/ca0f4261673541d798551f5cddc54bd6_0.geojson';
 
+  //with precincts loaded, draw on the map the precinct geo
   drawMap() {
     var prs = this.precincts;
     let eachFunc = function (f: any, l: any) {
@@ -89,6 +99,7 @@ export class AppComponent implements OnInit {
 
   json: any;
 
+  //fetch precinct definition from City of New Orleans
   setPrecinctLayers() {
     // Load geojson file
     this.http.get(this.precinctUrl).subscribe((json: any) => {
@@ -106,6 +117,8 @@ export class AppComponent implements OnInit {
       (x) => x.ElectionDate === value
     ).ElectionDate;
     let d = formatDate(this.selectedElection, this.dateFormat, 'en-US');
-    this.dataService.fetchOrleansElectionsFromSOS(d).subscribe((results) => {});
+    this.dataService.fetchOrleansElectionsFromSOS(d).subscribe((results) => {
+      console.log(results);
+    });
   }
 }

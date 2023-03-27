@@ -26,7 +26,7 @@ export class SOSDataService {
     const requestOptions = {
       headers: new HttpHeaders(headerDict),
     };
-    return this.http.get<IDates>(this.datesUrl, requestOptions);
+    return this.http.get<any>(this.datesUrl, requestOptions);
   }
 
   public fetchCandidatesFromSOS(electionDate: string): Observable<IElection> {
