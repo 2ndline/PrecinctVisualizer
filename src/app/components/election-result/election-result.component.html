@@ -1,5 +1,14 @@
-<div *ngIf="value">
-  <div *ngFor="let choice of value.Choice" [style.color]="choice.Color">
-    {{ choice.Desc }}
+<div *ngIf="value" style="display: flex;">
+  >
+  <!-- Candidates key -->
+  <div style="flex-basis: 33%;">
+    <div
+      *ngFor="let choice of value.Choice"
+      [style.background-color]="'#' + choice.Color.slice(2).padStart(6, '0')"
+    >
+      {{ choice.Desc }}
+    </div>
   </div>
+  <!-- results, early votes -->
+  <div style="flex-grow: 1;">Right</div>
 </div>
