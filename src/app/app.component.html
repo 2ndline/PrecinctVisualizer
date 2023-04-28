@@ -1,23 +1,21 @@
 <div id="map" style="height: 95%"></div>
 
 <div id="form">
-  <!-- 
-<input placeholder="Google Sheet URL" id="sheetUrl" [(ngModel)]="sheetUrl"
-   (change)="valueSelected()">
--->
   <select
     placeholder="Election date"
     [(ngModel)]="selectedElection"
-    (change)="dateValueSelected()"
+    (change)="dateValueSelected(selectedElection)"
   >
-    <option *ngFor="let date of electionDates">{{ date.ElectionDate }}</option>
+    <option *ngFor="let date of electionDates" [ngValue]="date">
+      {{ date.ElectionDate }}
+    </option>
   </select>
 
   <select
-  placeholder="Election race"
-  [(ngModel)]="selectedRace"
-  (change)="raceValueSelected()"
->
-  <option *ngFor="let race of electionRaces">{{ race.ElectionDate }}</option>
-</select>
+    placeholder="Election race"
+    [(ngModel)]="selectedRace"
+    (change)="raceValueSelected()"
+  >
+    <option *ngFor="let race of electionRaces">{{ race.SpecificTitle }}</option>
+  </select>
 </div>

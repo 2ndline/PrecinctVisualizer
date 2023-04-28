@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
-import { PrecinctVoterData, IDate } from './models/precinct-voter-data.model';
+import { Dates, Election, Race } from './models/precinct-voter-data.model';
 import { Precinct } from './models/precinct.model';
 import { SOSDataService } from './services/sos-data.service';
 import { formatDate } from '@angular/common';
@@ -24,19 +24,34 @@ import { formatDate } from '@angular/common';
 export class AppComponent implements OnInit {
   map: L.Map;
   markers: L.Marker[] = [];
-  total: PrecinctVoterData;
-  public selectedElection: string;
+  public selectedElection: string = '';
+  public electionDates: Election[] = [];
+  public electionRaces: Race[] = [];
+  public selectedRace: string = '';
   constructor(private http: HttpClient, private dataService: SOSDataService) {}
   public precincts: Precinct[] = [];
   precintGeoJson: L.GeoJSON<any>;
 
-  private dataLoaded: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  private dataLoaded: BehaviorSubject<boolean> = new BehaviorSubject(true);
 
   ngOnInit() {
     this.init();
   }
 
   init() {
+    //get the election dates
+    this.dataService.fetchDatesFromSOS().subscribe(
+      (results) => {
+        console.log(results);
+        console.log(results.DefaultElectionDate);
+        console.log(results.Date);
+        this.selectedElection = results.DefaultElectionDate;
+        this.electionDates = results.Date;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
     //create subscription for dataLoaded to fire up the map
     this.dataLoaded.subscribe((e) => {
       if (e) {
@@ -54,17 +69,6 @@ export class AppComponent implements OnInit {
         this.setPrecinctLayers();
       }
     });
-    //get the election dates
-    this.dataService.fetchDatesFromSOS().subscribe(
-      (results) => {
-        console.log(results);
-        this.selectedElection = results.DefaultElectionDate;
-        this.electionDates = results.Date;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
   }
 
   public precinctUrl: string =
@@ -108,17 +112,18 @@ export class AppComponent implements OnInit {
     });
   }
 
-  precinctVoterData: PrecinctVoterData[];
-  electionDates: IDate[] = [];
-
-  dateFormat = 'yyyy-MM-dd';
-  public dateValueSelected(value: string) {
-    this.selectedElection = this.electionDates.find(
-      (x) => x.ElectionDate === value
+  dateFormat = 'yyyyMMdd';
+  public dateValueSelected(value: Election) {
+    console.log(value);
+    let se = this.electionDates.find(
+      (x) => x.ElectionDate === value.ElectionDate
     ).ElectionDate;
-    let d = formatDate(this.selectedElection, this.dateFormat, 'en-US');
-    this.dataService.fetchOrleansElectionsFromSOS(d).subscribe((results) => {
-      console.log(results);
-    });
+    if (se) {
+      this.selectedElection = se;
+      let d = formatDate(this.selectedElection, this.dateFormat, 'en-US');
+      this.dataService.fetchCandidatesFromSOS(d).subscribe((results) => {
+        this.electionRaces = results.Race;
+      });
+    }
   }
 }

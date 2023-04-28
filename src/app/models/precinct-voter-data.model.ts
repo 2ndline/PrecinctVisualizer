@@ -1,53 +1,84 @@
 // https://voterportal.sos.la.gov/ElectionResults/ElectionResults/Data?blob=ElectionDates.htm
-export interface IDates {
-  DefaultElectionDate: string;
-  Date: IDate[];
+export class Election {
+  pkElectionID: string;
+  ElectionDate: string;
+  order: string;
+  resultsOfficial: string;
+  postElectionStatsAvailable: string;
+  displayTurnoutStats: string;
+  raceStatsExist: string;
+  pwpStatsExist: string;
+  turnoutMessage: string;
+  congMapName: string;
+  senMapName: string;
+  repMapName: string;
 }
 
-export interface IDate {
-  ElectionDate: string;
-  PKElectionID: string;
+export class Dates {
+  DefaultElectionDate: string;
+  Date: Election[];
+}
+
+export class ElectionResponse {
+  Dates: Dates;
 }
 
 //  https://voterportal.sos.la.gov/ElectionResults/ElectionResults/Data?blob=20230325/RacesCandidates_Multiparish
 // https://voterportal.sos.la.gov/ElectionResults/ElectionResults/Data?blob=20230325/VotesParish/Votes_36.htm
-export interface IElection {
-  Races: IRaces;
+
+export class CandidatesResponse {
+  Races: Races;
 }
 
-export interface IRaces {
-  WriteTime: string;
-  Race: IRace[];
-}
-
-export interface IRace {
-  SpecificTitle: string;
+export interface Choice {
   ID: string;
-  Choice: IChoice[];
-  VoterCountQualified: number;
-}
-
-export interface IChoice {
-  Color: string;
-  ID: string;
-  Desc: string;
+  VoteTotal: string;
   Outcome: string;
-  VoteTotal: number;
+  Color: string;
+  Desc: string;
+}
+
+export interface Races {
+  VersionDateTime: string;
+  Race: Race[];
+  WriteTime: string;
+}
+
+export interface Race {
+  ID: string;
+  SpecificTitle: string;
+  GeneralTitle: string;
+  OfficeLevel: string;
+  IsMultiParish: string;
+  IsPresidentialNominee: string;
+  NumberToBeElected: string;
+  SummaryText: null;
+  FullText: null;
+  IsClosedParty: string;
+  Choice: Choice[];
+  PrecinctsReporting: string;
+  PrecinctsExpected: string;
+  NumAbsenteeReporting: string;
+  NumAbsenteeExpected: string;
+  VoterCountQualified: string;
+  VoterCountVoted: string;
 }
 
 //https://voterportal.sos.la.gov/ElectionResults/ElectionResults/Data?blob=20230325/VotesRaceByPrecinct/Votes_64495_36.htm
-
-export interface IPrecincts {
-  Precinct: IPrecinct[];
+interface PrecinctChoice {
+  ID: string;
+  VoteTotal: string;
 }
 
-export interface IPrecinct {
-  HasReported: number;
+interface Precinct {
   Precinct: string;
-  VoterCountQualified: number;
-  Choice: IChoice[];
+  VoterCountQualified?: string;
+  VoterCountVoted?: string;
+  HasReported: string;
+  Choice: PrecinctChoice[];
 }
 
-export interface PrecinctVoterData {
-  precinct: string;
+interface Precincts {
+  VersionDateTime: string;
+  Precinct: Precinct[];
 }

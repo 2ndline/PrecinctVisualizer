@@ -1,0 +1,896 @@
+{
+  "Precincts": {
+    "VersionDateTime": "1900-01-01T00:00:00",
+    "Precinct": [
+      {
+        "Precinct": "03/14",
+        "VoterCountQualified": "433",
+        "VoterCountVoted": "134",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "60" },
+          { "ID": "114310", "VoteTotal": "8" },
+          { "ID": "114212", "VoteTotal": "28" }
+        ]
+      },
+      {
+        "Precinct": "03/18",
+        "VoterCountQualified": "1060",
+        "VoterCountVoted": "254",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "105" },
+          { "ID": "114310", "VoteTotal": "11" },
+          { "ID": "114212", "VoteTotal": "76" }
+        ]
+      },
+      {
+        "Precinct": "03/19",
+        "VoterCountQualified": "916",
+        "VoterCountVoted": "248",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "90" },
+          { "ID": "114310", "VoteTotal": "19" },
+          { "ID": "114212", "VoteTotal": "70" }
+        ]
+      },
+      {
+        "Precinct": "03/20",
+        "VoterCountQualified": "466",
+        "VoterCountVoted": "133",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "59" },
+          { "ID": "114310", "VoteTotal": "9" },
+          { "ID": "114212", "VoteTotal": "37" }
+        ]
+      },
+      {
+        "Precinct": "04/07",
+        "VoterCountQualified": "382",
+        "VoterCountVoted": "107",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "46" },
+          { "ID": "114310", "VoteTotal": "8" },
+          { "ID": "114212", "VoteTotal": "23" }
+        ]
+      },
+      {
+        "Precinct": "04/08",
+        "VoterCountQualified": "602",
+        "VoterCountVoted": "228",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "106" },
+          { "ID": "114310", "VoteTotal": "15" },
+          { "ID": "114212", "VoteTotal": "60" }
+        ]
+      },
+      {
+        "Precinct": "04/09",
+        "VoterCountQualified": "1409",
+        "VoterCountVoted": "530",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "294" },
+          { "ID": "114310", "VoteTotal": "15" },
+          { "ID": "114212", "VoteTotal": "64" }
+        ]
+      },
+      {
+        "Precinct": "04/11",
+        "VoterCountQualified": "757",
+        "VoterCountVoted": "223",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "127" },
+          { "ID": "114310", "VoteTotal": "16" },
+          { "ID": "114212", "VoteTotal": "27" }
+        ]
+      },
+      {
+        "Precinct": "04/14",
+        "VoterCountQualified": "1344",
+        "VoterCountVoted": "589",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "365" },
+          { "ID": "114310", "VoteTotal": "34" },
+          { "ID": "114212", "VoteTotal": "32" }
+        ]
+      },
+      {
+        "Precinct": "04/15",
+        "VoterCountQualified": "1211",
+        "VoterCountVoted": "438",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "241" },
+          { "ID": "114310", "VoteTotal": "25" },
+          { "ID": "114212", "VoteTotal": "28" }
+        ]
+      },
+      {
+        "Precinct": "04/17",
+        "VoterCountQualified": "1035",
+        "VoterCountVoted": "417",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "230" },
+          { "ID": "114310", "VoteTotal": "24" },
+          { "ID": "114212", "VoteTotal": "18" }
+        ]
+      },
+      {
+        "Precinct": "04/17A",
+        "VoterCountQualified": "583",
+        "VoterCountVoted": "245",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "149" },
+          { "ID": "114310", "VoteTotal": "19" },
+          { "ID": "114212", "VoteTotal": "4" }
+        ]
+      },
+      {
+        "Precinct": "04/18",
+        "VoterCountQualified": "1143",
+        "VoterCountVoted": "472",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "253" },
+          { "ID": "114310", "VoteTotal": "33" },
+          { "ID": "114212", "VoteTotal": "12" }
+        ]
+      },
+      {
+        "Precinct": "04/20",
+        "VoterCountQualified": "766",
+        "VoterCountVoted": "304",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "165" },
+          { "ID": "114310", "VoteTotal": "25" },
+          { "ID": "114212", "VoteTotal": "4" }
+        ]
+      },
+      {
+        "Precinct": "04/21",
+        "VoterCountQualified": "768",
+        "VoterCountVoted": "298",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "165" },
+          { "ID": "114310", "VoteTotal": "23" },
+          { "ID": "114212", "VoteTotal": "10" }
+        ]
+      },
+      {
+        "Precinct": "05/08",
+        "VoterCountQualified": "358",
+        "VoterCountVoted": "108",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "40" },
+          { "ID": "114310", "VoteTotal": "3" },
+          { "ID": "114212", "VoteTotal": "39" }
+        ]
+      },
+      {
+        "Precinct": "05/09",
+        "VoterCountQualified": "476",
+        "VoterCountVoted": "107",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "38" },
+          { "ID": "114310", "VoteTotal": "4" },
+          { "ID": "114212", "VoteTotal": "36" }
+        ]
+      },
+      {
+        "Precinct": "05/10",
+        "VoterCountQualified": "500",
+        "VoterCountVoted": "137",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "54" },
+          { "ID": "114310", "VoteTotal": "6" },
+          { "ID": "114212", "VoteTotal": "44" }
+        ]
+      },
+      {
+        "Precinct": "05/11",
+        "VoterCountQualified": "440",
+        "VoterCountVoted": "154",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "75" },
+          { "ID": "114310", "VoteTotal": "4" },
+          { "ID": "114212", "VoteTotal": "40" }
+        ]
+      },
+      {
+        "Precinct": "05/12",
+        "VoterCountQualified": "757",
+        "VoterCountVoted": "219",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "113" },
+          { "ID": "114310", "VoteTotal": "9" },
+          { "ID": "114212", "VoteTotal": "49" }
+        ]
+      },
+      {
+        "Precinct": "05/13",
+        "VoterCountQualified": "545",
+        "VoterCountVoted": "260",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "121" },
+          { "ID": "114310", "VoteTotal": "19" },
+          { "ID": "114212", "VoteTotal": "58" }
+        ]
+      },
+      {
+        "Precinct": "05/15",
+        "VoterCountQualified": "983",
+        "VoterCountVoted": "375",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "166" },
+          { "ID": "114310", "VoteTotal": "28" },
+          { "ID": "114212", "VoteTotal": "47" }
+        ]
+      },
+      {
+        "Precinct": "05/16",
+        "VoterCountQualified": "420",
+        "VoterCountVoted": "137",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "61" },
+          { "ID": "114310", "VoteTotal": "3" },
+          { "ID": "114212", "VoteTotal": "23" }
+        ]
+      },
+      {
+        "Precinct": "06/08",
+        "VoterCountQualified": "523",
+        "VoterCountVoted": "210",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "103" },
+          { "ID": "114310", "VoteTotal": "20" },
+          { "ID": "114212", "VoteTotal": "49" }
+        ]
+      },
+      {
+        "Precinct": "06/09",
+        "VoterCountQualified": "669",
+        "VoterCountVoted": "290",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "153" },
+          { "ID": "114310", "VoteTotal": "10" },
+          { "ID": "114212", "VoteTotal": "33" }
+        ]
+      },
+      {
+        "Precinct": "07/12",
+        "VoterCountQualified": "389",
+        "VoterCountVoted": "138",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "72" },
+          { "ID": "114310", "VoteTotal": "3" },
+          { "ID": "114212", "VoteTotal": "23" }
+        ]
+      },
+      {
+        "Precinct": "07/17",
+        "VoterCountQualified": "633",
+        "VoterCountVoted": "250",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "115" },
+          { "ID": "114310", "VoteTotal": "18" },
+          { "ID": "114212", "VoteTotal": "51" }
+        ]
+      },
+      {
+        "Precinct": "07/18",
+        "VoterCountQualified": "1088",
+        "VoterCountVoted": "359",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "134" },
+          { "ID": "114310", "VoteTotal": "18" },
+          { "ID": "114212", "VoteTotal": "70" }
+        ]
+      },
+      {
+        "Precinct": "14/01",
+        "VoterCountQualified": "525",
+        "VoterCountVoted": "189",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "127" },
+          { "ID": "114310", "VoteTotal": "15" },
+          { "ID": "114212", "VoteTotal": "21" }
+        ]
+      },
+      {
+        "Precinct": "14/02",
+        "VoterCountQualified": "515",
+        "VoterCountVoted": "170",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "121" },
+          { "ID": "114310", "VoteTotal": "7" },
+          { "ID": "114212", "VoteTotal": "13" }
+        ]
+      },
+      {
+        "Precinct": "14/03",
+        "VoterCountQualified": "509",
+        "VoterCountVoted": "182",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "119" },
+          { "ID": "114310", "VoteTotal": "11" },
+          { "ID": "114212", "VoteTotal": "24" }
+        ]
+      },
+      {
+        "Precinct": "14/04",
+        "VoterCountQualified": "424",
+        "VoterCountVoted": "143",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "97" },
+          { "ID": "114310", "VoteTotal": "1" },
+          { "ID": "114212", "VoteTotal": "12" }
+        ]
+      },
+      {
+        "Precinct": "14/05",
+        "VoterCountQualified": "468",
+        "VoterCountVoted": "165",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "116" },
+          { "ID": "114310", "VoteTotal": "7" },
+          { "ID": "114212", "VoteTotal": "7" }
+        ]
+      },
+      {
+        "Precinct": "14/06",
+        "VoterCountQualified": "648",
+        "VoterCountVoted": "263",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "184" },
+          { "ID": "114310", "VoteTotal": "6" },
+          { "ID": "114212", "VoteTotal": "12" }
+        ]
+      },
+      {
+        "Precinct": "14/07",
+        "VoterCountQualified": "624",
+        "VoterCountVoted": "217",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "146" },
+          { "ID": "114310", "VoteTotal": "17" },
+          { "ID": "114212", "VoteTotal": "11" }
+        ]
+      },
+      {
+        "Precinct": "14/08",
+        "VoterCountQualified": "552",
+        "VoterCountVoted": "194",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "139" },
+          { "ID": "114310", "VoteTotal": "6" },
+          { "ID": "114212", "VoteTotal": "7" }
+        ]
+      },
+      {
+        "Precinct": "14/09",
+        "VoterCountQualified": "596",
+        "VoterCountVoted": "226",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "142" },
+          { "ID": "114310", "VoteTotal": "3" },
+          { "ID": "114212", "VoteTotal": "9" }
+        ]
+      },
+      {
+        "Precinct": "14/10",
+        "VoterCountQualified": "793",
+        "VoterCountVoted": "319",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "145" },
+          { "ID": "114310", "VoteTotal": "10" },
+          { "ID": "114212", "VoteTotal": "13" }
+        ]
+      },
+      {
+        "Precinct": "14/11",
+        "VoterCountQualified": "453",
+        "VoterCountVoted": "157",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "100" },
+          { "ID": "114310", "VoteTotal": "10" },
+          { "ID": "114212", "VoteTotal": "12" }
+        ]
+      },
+      {
+        "Precinct": "14/12",
+        "VoterCountQualified": "776",
+        "VoterCountVoted": "140",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "84" },
+          { "ID": "114310", "VoteTotal": "5" },
+          { "ID": "114212", "VoteTotal": "19" }
+        ]
+      },
+      {
+        "Precinct": "14/13A",
+        "VoterCountQualified": "2431",
+        "VoterCountVoted": "101",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "45" },
+          { "ID": "114310", "VoteTotal": "14" },
+          { "ID": "114212", "VoteTotal": "20" }
+        ]
+      },
+      {
+        "Precinct": "14/14",
+        "VoterCountQualified": "518",
+        "VoterCountVoted": "160",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "116" },
+          { "ID": "114310", "VoteTotal": "8" },
+          { "ID": "114212", "VoteTotal": "3" }
+        ]
+      },
+      {
+        "Precinct": "14/15",
+        "VoterCountQualified": "512",
+        "VoterCountVoted": "178",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "111" },
+          { "ID": "114310", "VoteTotal": "5" },
+          { "ID": "114212", "VoteTotal": "18" }
+        ]
+      },
+      {
+        "Precinct": "14/16",
+        "VoterCountQualified": "885",
+        "VoterCountVoted": "247",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "143" },
+          { "ID": "114310", "VoteTotal": "14" },
+          { "ID": "114212", "VoteTotal": "26" }
+        ]
+      },
+      {
+        "Precinct": "14/17",
+        "VoterCountQualified": "514",
+        "VoterCountVoted": "141",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "76" },
+          { "ID": "114310", "VoteTotal": "10" },
+          { "ID": "114212", "VoteTotal": "20" }
+        ]
+      },
+      {
+        "Precinct": "14/18A",
+        "VoterCountQualified": "720",
+        "VoterCountVoted": "164",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "102" },
+          { "ID": "114310", "VoteTotal": "9" },
+          { "ID": "114212", "VoteTotal": "16" }
+        ]
+      },
+      {
+        "Precinct": "14/19",
+        "VoterCountQualified": "660",
+        "VoterCountVoted": "181",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "90" },
+          { "ID": "114310", "VoteTotal": "18" },
+          { "ID": "114212", "VoteTotal": "31" }
+        ]
+      },
+      {
+        "Precinct": "14/20",
+        "VoterCountQualified": "1096",
+        "VoterCountVoted": "356",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "196" },
+          { "ID": "114310", "VoteTotal": "27" },
+          { "ID": "114212", "VoteTotal": "43" }
+        ]
+      },
+      {
+        "Precinct": "14/21",
+        "VoterCountQualified": "706",
+        "VoterCountVoted": "224",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "140" },
+          { "ID": "114310", "VoteTotal": "7" },
+          { "ID": "114212", "VoteTotal": "31" }
+        ]
+      },
+      {
+        "Precinct": "16/01",
+        "VoterCountQualified": "488",
+        "VoterCountVoted": "136",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "81" },
+          { "ID": "114310", "VoteTotal": "8" },
+          { "ID": "114212", "VoteTotal": "19" }
+        ]
+      },
+      {
+        "Precinct": "16/01A",
+        "VoterCountQualified": "454",
+        "VoterCountVoted": "136",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "93" },
+          { "ID": "114310", "VoteTotal": "6" },
+          { "ID": "114212", "VoteTotal": "12" }
+        ]
+      },
+      {
+        "Precinct": "16/02",
+        "VoterCountQualified": "638",
+        "VoterCountVoted": "165",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "85" },
+          { "ID": "114310", "VoteTotal": "11" },
+          { "ID": "114212", "VoteTotal": "21" }
+        ]
+      },
+      {
+        "Precinct": "16/03",
+        "VoterCountQualified": "733",
+        "VoterCountVoted": "157",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "95" },
+          { "ID": "114310", "VoteTotal": "6" },
+          { "ID": "114212", "VoteTotal": "18" }
+        ]
+      },
+      {
+        "Precinct": "16/04",
+        "VoterCountQualified": "731",
+        "VoterCountVoted": "187",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "102" },
+          { "ID": "114310", "VoteTotal": "14" },
+          { "ID": "114212", "VoteTotal": "31" }
+        ]
+      },
+      {
+        "Precinct": "16/05",
+        "VoterCountQualified": "564",
+        "VoterCountVoted": "212",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "130" },
+          { "ID": "114310", "VoteTotal": "7" },
+          { "ID": "114212", "VoteTotal": "29" }
+        ]
+      },
+      {
+        "Precinct": "16/06",
+        "VoterCountQualified": "897",
+        "VoterCountVoted": "250",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "129" },
+          { "ID": "114310", "VoteTotal": "7" },
+          { "ID": "114212", "VoteTotal": "54" }
+        ]
+      },
+      {
+        "Precinct": "16/07",
+        "VoterCountQualified": "613",
+        "VoterCountVoted": "212",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "122" },
+          { "ID": "114310", "VoteTotal": "14" },
+          { "ID": "114212", "VoteTotal": "28" }
+        ]
+      },
+      {
+        "Precinct": "16/08",
+        "VoterCountQualified": "548",
+        "VoterCountVoted": "202",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "120" },
+          { "ID": "114310", "VoteTotal": "12" },
+          { "ID": "114212", "VoteTotal": "28" }
+        ]
+      },
+      {
+        "Precinct": "17/01",
+        "VoterCountQualified": "473",
+        "VoterCountVoted": "151",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "82" },
+          { "ID": "114310", "VoteTotal": "12" },
+          { "ID": "114212", "VoteTotal": "24" }
+        ]
+      },
+      {
+        "Precinct": "17/02",
+        "VoterCountQualified": "463",
+        "VoterCountVoted": "169",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "97" },
+          { "ID": "114310", "VoteTotal": "8" },
+          { "ID": "114212", "VoteTotal": "26" }
+        ]
+      },
+      {
+        "Precinct": "17/03",
+        "VoterCountQualified": "658",
+        "VoterCountVoted": "192",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "96" },
+          { "ID": "114310", "VoteTotal": "13" },
+          { "ID": "114212", "VoteTotal": "42" }
+        ]
+      },
+      {
+        "Precinct": "17/04",
+        "VoterCountQualified": "469",
+        "VoterCountVoted": "164",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "74" },
+          { "ID": "114310", "VoteTotal": "8" },
+          { "ID": "114212", "VoteTotal": "38" }
+        ]
+      },
+      {
+        "Precinct": "17/05",
+        "VoterCountQualified": "696",
+        "VoterCountVoted": "206",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "105" },
+          { "ID": "114310", "VoteTotal": "9" },
+          { "ID": "114212", "VoteTotal": "45" }
+        ]
+      },
+      {
+        "Precinct": "17/06",
+        "VoterCountQualified": "790",
+        "VoterCountVoted": "195",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "97" },
+          { "ID": "114310", "VoteTotal": "6" },
+          { "ID": "114212", "VoteTotal": "51" }
+        ]
+      },
+      {
+        "Precinct": "17/07",
+        "VoterCountQualified": "764",
+        "VoterCountVoted": "242",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "100" },
+          { "ID": "114310", "VoteTotal": "9" },
+          { "ID": "114212", "VoteTotal": "72" }
+        ]
+      },
+      {
+        "Precinct": "17/08",
+        "VoterCountQualified": "595",
+        "VoterCountVoted": "142",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "61" },
+          { "ID": "114310", "VoteTotal": "11" },
+          { "ID": "114212", "VoteTotal": "38" }
+        ]
+      },
+      {
+        "Precinct": "17/09",
+        "VoterCountQualified": "677",
+        "VoterCountVoted": "163",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "74" },
+          { "ID": "114310", "VoteTotal": "2" },
+          { "ID": "114212", "VoteTotal": "22" }
+        ]
+      },
+      {
+        "Precinct": "17/10",
+        "VoterCountQualified": "572",
+        "VoterCountVoted": "193",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "91" },
+          { "ID": "114310", "VoteTotal": "12" },
+          { "ID": "114212", "VoteTotal": "41" }
+        ]
+      },
+      {
+        "Precinct": "17/11",
+        "VoterCountQualified": "618",
+        "VoterCountVoted": "159",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "81" },
+          { "ID": "114310", "VoteTotal": "8" },
+          { "ID": "114212", "VoteTotal": "24" }
+        ]
+      },
+      {
+        "Precinct": "17/12",
+        "VoterCountQualified": "530",
+        "VoterCountVoted": "135",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "53" },
+          { "ID": "114310", "VoteTotal": "4" },
+          { "ID": "114212", "VoteTotal": "22" }
+        ]
+      },
+      {
+        "Precinct": "17/13",
+        "VoterCountQualified": "503",
+        "VoterCountVoted": "139",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "68" },
+          { "ID": "114310", "VoteTotal": "6" },
+          { "ID": "114212", "VoteTotal": "24" }
+        ]
+      },
+      {
+        "Precinct": "17/13A",
+        "VoterCountQualified": "408",
+        "VoterCountVoted": "116",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "63" },
+          { "ID": "114310", "VoteTotal": "4" },
+          { "ID": "114212", "VoteTotal": "15" }
+        ]
+      },
+      {
+        "Precinct": "17/14",
+        "VoterCountQualified": "969",
+        "VoterCountVoted": "206",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "91" },
+          { "ID": "114310", "VoteTotal": "6" },
+          { "ID": "114212", "VoteTotal": "35" }
+        ]
+      },
+      {
+        "Precinct": "17/15",
+        "VoterCountQualified": "625",
+        "VoterCountVoted": "186",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "93" },
+          { "ID": "114310", "VoteTotal": "4" },
+          { "ID": "114212", "VoteTotal": "28" }
+        ]
+      },
+      {
+        "Precinct": "17/16",
+        "VoterCountQualified": "638",
+        "VoterCountVoted": "179",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "94" },
+          { "ID": "114310", "VoteTotal": "8" },
+          { "ID": "114212", "VoteTotal": "29" }
+        ]
+      },
+      {
+        "Precinct": "17/17",
+        "VoterCountQualified": "587",
+        "VoterCountVoted": "212",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "108" },
+          { "ID": "114310", "VoteTotal": "10" },
+          { "ID": "114212", "VoteTotal": "7" }
+        ]
+      },
+      {
+        "Precinct": "17/18",
+        "VoterCountQualified": "644",
+        "VoterCountVoted": "246",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "174" },
+          { "ID": "114310", "VoteTotal": "14" },
+          { "ID": "114212", "VoteTotal": "9" }
+        ]
+      },
+      {
+        "Precinct": "17/18A",
+        "VoterCountQualified": "907",
+        "VoterCountVoted": "326",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "174" },
+          { "ID": "114310", "VoteTotal": "35" },
+          { "ID": "114212", "VoteTotal": "20" }
+        ]
+      },
+      {
+        "Precinct": "17/19",
+        "VoterCountQualified": "1023",
+        "VoterCountVoted": "326",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "195" },
+          { "ID": "114310", "VoteTotal": "23" },
+          { "ID": "114212", "VoteTotal": "11" }
+        ]
+      },
+      {
+        "Precinct": "17/20",
+        "VoterCountQualified": "1482",
+        "VoterCountVoted": "465",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "236" },
+          { "ID": "114310", "VoteTotal": "17" },
+          { "ID": "114212", "VoteTotal": "15" }
+        ]
+      },
+      {
+        "Precinct": "Early Voting",
+        "HasReported": "1",
+        "Choice": [
+          { "ID": "114216", "VoteTotal": "3345" },
+          { "ID": "114310", "VoteTotal": "248" },
+          { "ID": "114212", "VoteTotal": "469" }
+        ]
+      }
+    ]
+  }
+}
