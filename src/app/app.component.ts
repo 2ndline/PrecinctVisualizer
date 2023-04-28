@@ -3,7 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import * as L from 'leaflet';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
-import { Choice, Dates, Election, Race } from './models/precinct-voter-data.model';
+import {
+  Choice,
+  Dates,
+  Election,
+  Race,
+} from './models/precinct-voter-data.model';
 import { Precinct } from './models/precinct.model';
 import { SOSDataService } from './services/sos-data.service';
 import { formatDate } from '@angular/common';
@@ -28,7 +33,7 @@ export class AppComponent implements OnInit {
   public electionDates: Election[] = [];
   public electionRaces: Race[] = [];
   public selectedRace: string = '';
-  electionChoices: Choice[];
+  public highlightedRace: Race;
   constructor(private http: HttpClient, private dataService: SOSDataService) {}
   public precincts: Precinct[] = [];
   precintGeoJson: L.GeoJSON<any>;
@@ -134,7 +139,7 @@ export class AppComponent implements OnInit {
     if (sr) {
       this.selectedRace = value;
       console.log(sr);
-      this.electionChoices = sr.Choice;
+      this.highlightedRace = sr;
       //TODO load precinct results, load map
     }
   }

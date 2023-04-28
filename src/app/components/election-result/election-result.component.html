@@ -1,0 +1,5 @@
+<div *ngIf="value">
+  <div *ngFor="let choice of value.Choice" [style.color]="choice.Color">
+    {{ choice.Desc }}
+  </div>
+</div>

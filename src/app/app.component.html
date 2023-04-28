@@ -18,4 +18,6 @@
   >
     <option *ngFor="let race of electionRaces">{{ race.SpecificTitle }}</option>
   </select>
+
+  <election-result [(ngModel)]="highlightedRace" *ngIf="highlightedRace" name="highlightedRace" ngDefaultControl />
 </div>
