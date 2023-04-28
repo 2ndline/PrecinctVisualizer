@@ -16,6 +16,7 @@ import { Race } from '../../models/precinct-voter-data.model';
 })
 export class ElectionResultComponent implements OnInit, OnChanges {
   @Input() value: Race;
+  @Input() selectedRaceChange: EventEmitter<any>;
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.value && changes.value.currentValue) {
@@ -24,6 +25,6 @@ export class ElectionResultComponent implements OnInit, OnChanges {
     }
   }
   ngOnInit(): void {
-    //
+    
   }
 }

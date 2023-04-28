@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 // @ts-ignore
 import * as L from 'leaflet';
 import { HttpClient } from '@angular/common/http';
@@ -37,7 +37,6 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient, private dataService: SOSDataService) {}
   public precincts: Precinct[] = [];
   precintGeoJson: L.GeoJSON<any>;
-
   private dataLoaded: BehaviorSubject<boolean> = new BehaviorSubject(true);
 
   ngOnInit() {
@@ -140,7 +139,6 @@ export class AppComponent implements OnInit {
       this.selectedRace = value;
       console.log(sr);
       this.highlightedRace = sr;
-      //TODO load precinct results, load map
     }
   }
 }
