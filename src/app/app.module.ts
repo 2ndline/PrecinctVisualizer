@@ -6,10 +6,11 @@ import { API_KEY, GoogleSheetsDbService } from 'ng-google-sheets-db';
 
 import { AppComponent } from './app.component';
 import { PopupComponent } from './components/popup/popup.component';
+import { ElectionResultComponent } from './components/election-result/election-result';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpClientModule],
-  declarations: [AppComponent, PopupComponent],
+  declarations: [AppComponent, PopupComponent, ElectionResultComponent],
   providers: [
     {
       provide: API_KEY,
