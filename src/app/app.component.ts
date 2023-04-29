@@ -101,6 +101,46 @@ export class AppComponent implements OnInit {
       pr.layer = l;
     };
 
+    //TODO - display precinct data
+    /*
+From restored code
+if (DistrictAPrecincts.includes(precinctId)) {
+        //style layer & bind popup
+        pr.layer['options'].weight = 1;
+        let amount: any = pr.data[selectedColumn.id];
+        if (selectedColumn.columnType === 'header') {
+          return;
+        }
+
+        let red = 255;
+        let green = 0;
+        let value: number = amount;
+        if (selectedColumn.columnType === 'total') {
+          value = amount / selectedColumn.max;
+          if (value > 1) {
+            value = 1;
+          }
+        } else if (selectedColumn.columnType === 'average') {
+          value = +amount.slice(0, -1) / 100;
+        }
+        if (value >= 0.5) {
+          let diff = 1 - value;
+          red = 510 * diff;
+          green = 255;
+        } else {
+          green = 510 * value;
+          red = 255;
+        }
+        console.log('Precint val:' + value);
+        pr.layer['options'].fillColor =
+          'rgb(' + Math.round(red) + ',' + Math.round(green) + ',0)';
+        pr.layer['options'].fillOpacity = 0.8;
+        pr.layer.bindPopup(`<pre>${JSON.stringify(pr.data, null, 2)}</pre>`);
+      } else {
+        pr.layer['options'].weight = 0;
+      }
+*/
+
     if (this.precintGeoJson) {
       this.precintGeoJson.remove();
     }
@@ -148,6 +188,7 @@ export class AppComponent implements OnInit {
     if (sr) {
       this.selectedRace = value;
 
+      //FIXME: below sucks - either load in all results when we load in a selected election, or optimize the selected race
       this.dataService
         .fetchOrleansElectionsFromSOS(this.selectedElection)
         .subscribe((result) => {
@@ -174,6 +215,7 @@ export class AppComponent implements OnInit {
               }
             });
             mergedRace.Choice = mergedChoices;
+            mergedRace.ElectionDate = this.selectedElection;
             this.highlightedRace = mergedRace;
           }
           console.log(this.highlightedRace);

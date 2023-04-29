@@ -30,6 +30,10 @@ export class CandidatesResponse {
   Races: Races;
 }
 
+export class PrecinctsResponse {
+  Precincts: Precincts;
+}
+
 export interface Choice {
   ID: string;
   VoteTotal: string;
@@ -62,6 +66,7 @@ export interface Race {
   NumAbsenteeExpected: string;
   VoterCountQualified: string;
   VoterCountVoted: string;
+  ElectionDate: string;
 }
 
 //https://voterportal.sos.la.gov/ElectionResults/ElectionResults/Data?blob=20230325/VotesRaceByPrecinct/Votes_64495_36.htm

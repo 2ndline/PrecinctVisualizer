@@ -16,7 +16,10 @@ import { SOSDataService } from '../../services/sos-data.service';
 })
 export class ElectionResultComponent implements OnInit, OnChanges {
   @Input() value: Race;
-  constructor(private cdr: ChangeDetectorRef, dataService: SOSDataService) {}
+  constructor(
+    private cdr: ChangeDetectorRef,
+    private dataService: SOSDataService
+  ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log('change');
@@ -24,6 +27,13 @@ export class ElectionResultComponent implements OnInit, OnChanges {
       // Do something with the new value of highlightedRace
       console.log('change to election result');
       //fetch the election results
+      this.dataService
+        .fetchPrecinctResultsFromSOS(this.value.ElectionDate, this.value.ID)
+        .subscribe((result) => {
+          result.Precinct.forEach((precinct) => {
+            
+          });
+        });
     }
   }
   ngOnInit(): void {}
