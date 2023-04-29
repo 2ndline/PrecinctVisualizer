@@ -1,13 +1,13 @@
 import {
+  ChangeDetectorRef,
   Component,
-  EventEmitter,
   Input,
   OnChanges,
   OnInit,
-  Output,
   SimpleChanges,
 } from '@angular/core';
 import { Race } from '../../models/precinct-voter-data.model';
+import { SOSDataService } from '../../services/sos-data.service';
 
 @Component({
   selector: 'election-result',
@@ -16,15 +16,15 @@ import { Race } from '../../models/precinct-voter-data.model';
 })
 export class ElectionResultComponent implements OnInit, OnChanges {
   @Input() value: Race;
-  @Input() selectedRaceChange: EventEmitter<any>;
+  constructor(private cdr: ChangeDetectorRef, dataService: SOSDataService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
+    console.log('change');
     if (changes.value && changes.value.currentValue) {
       // Do something with the new value of highlightedRace
       console.log('change to election result');
+      //fetch the election results
     }
   }
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 }

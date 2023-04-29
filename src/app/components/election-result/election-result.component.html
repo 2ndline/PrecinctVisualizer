@@ -1,14 +1,25 @@
-<div *ngIf="value" style="display: flex;">
-  >
+<div style="display: flex;">
   <!-- Candidates key -->
   <div style="flex-basis: 33%;">
-    <div
-      *ngFor="let choice of value.Choice"
-      [style.background-color]="'#' + choice.Color.slice(2).padStart(6, '0')"
-    >
-      {{ choice.Desc }}
+    <div *ngIf="value">
+      <div
+        *ngFor="let choice of value.Choice"
+        [style.background-color]="'#' + choice.Color.slice(2).padStart(6, '0')"
+      >
+        {{ choice.Desc }} : {{ choice.VoteTotal }}
+      </div>
     </div>
   </div>
   <!-- results, early votes -->
-  <div style="flex-grow: 1;">Right</div>
+  <div style="flex-grow: 1;">
+    <div *ngIf="value">
+      <div>
+        Results: {{ value.VoterCountVoted }} votes,
+        {{
+          (+value.VoterCountVoted / +value.VoterCountQualified) * 100
+            | number: '1.0-2'
+        }}% turnout
+      </div>
+    </div>
+  </div>
 </div>

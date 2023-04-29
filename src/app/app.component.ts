@@ -1,4 +1,9 @@
-import { Component, EventEmitter, OnInit } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  OnInit,
+} from '@angular/core';
 // @ts-ignore
 import * as L from 'leaflet';
 import { HttpClient } from '@angular/common/http';
@@ -34,7 +39,11 @@ export class AppComponent implements OnInit {
   public electionRaces: Race[] = [];
   public selectedRace: string = '';
   public highlightedRace: Race;
-  constructor(private http: HttpClient, private dataService: SOSDataService) {}
+  constructor(
+    private http: HttpClient,
+    private dataService: SOSDataService,
+    private cdr: ChangeDetectorRef
+  ) {}
   public precincts: Precinct[] = [];
   precintGeoJson: L.GeoJSON<any>;
   private dataLoaded: BehaviorSubject<boolean> = new BehaviorSubject(true);
@@ -133,12 +142,44 @@ export class AppComponent implements OnInit {
   }
 
   public raceValueSelected(value: string) {
+    console.log('selecting race');
     console.log(value);
     let sr = this.electionRaces.find((x) => x.SpecificTitle === value);
     if (sr) {
       this.selectedRace = value;
-      console.log(sr);
-      this.highlightedRace = sr;
+
+      this.dataService
+        .fetchOrleansElectionsFromSOS(this.selectedElection)
+        .subscribe((result) => {
+          let raceResults = result.Race.find((r) => r.ID == sr.ID);
+          console.log('find results');
+
+          if (raceResults) {
+            console.log(raceResults);
+            let mergedRace: Race = {
+              ...sr,
+              ...raceResults,
+            };
+            const mergedChoices = [...sr.Choice];
+            raceResults.Choice.forEach((choice2) => {
+              const index = mergedChoices.findIndex(
+                (choice1) => choice1.ID === choice2.ID
+              );
+              if (index >= 0) {
+                // merge the two choices based on ID
+                mergedChoices[index] = { ...mergedChoices[index], ...choice2 };
+              } else {
+                // add choice2 to the mergedChoices array
+                mergedChoices.push(choice2);
+              }
+            });
+            mergedRace.Choice = mergedChoices;
+            this.highlightedRace = mergedRace;
+          }
+          console.log(this.highlightedRace);
+          this.cdr.detectChanges();
+          console.log('highlighted race');
+        });
     }
   }
 }
