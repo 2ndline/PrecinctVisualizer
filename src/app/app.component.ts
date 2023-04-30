@@ -40,6 +40,7 @@ export class AppComponent implements OnInit {
   public electionRaces: Race[] = [];
   public selectedRace: string = '';
   public highlightedRace: Race;
+  precinctResults: Precincts;
   constructor(
     private http: HttpClient,
     private dataService: SOSDataService,
@@ -100,6 +101,11 @@ export class AppComponent implements OnInit {
       }
       pr.feature = f;
       pr.layer = l;
+      if (this.precinctResults) {
+        let p = this.precinctResults.find(
+          (precinct: { Precinct: string }) => (precinct.Precinct = precinctId)
+        );
+      }
     };
 
     //TODO - display precinct data
@@ -228,6 +234,7 @@ if (DistrictAPrecincts.includes(precinctId)) {
 
   onPrecinctsLoaded(precincts: Precincts) {
     console.log('Precincts loaded');
+    this.precinctResults = precincts;
     // Do something when the precincts are loaded
     this.drawMap();
   }
