@@ -30,8 +30,9 @@ export class ElectionResultComponent implements OnInit, OnChanges {
       this.dataService
         .fetchPrecinctResultsFromSOS(this.value.ElectionDate, this.value.ID)
         .subscribe((result) => {
+          //we'll need to clean up results to match map precinct keys
           result.Precinct.forEach((precinct) => {
-            
+            //replace slash with hyphen, leading zero
           });
         });
     }
