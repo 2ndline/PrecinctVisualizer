@@ -75,7 +75,7 @@ interface PrecinctChoice {
   VoteTotal: string;
 }
 
-interface Precinct {
+export interface Precinct {
   Precinct: string;
   VoterCountQualified?: string;
   VoterCountVoted?: string;
@@ -83,7 +83,7 @@ interface Precinct {
   Choice: PrecinctChoice[];
 }
 
-interface Precincts {
+export interface Precincts {
   VersionDateTime: string;
   Precinct: Precinct[];
 }

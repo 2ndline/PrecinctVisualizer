@@ -22,6 +22,7 @@
   <election-result
     [(ngModel)]="highlightedRace"
     [value]="highlightedRace"
+    (precinctsLoaded)="onPrecinctsLoaded(precincts)"
     name="highlightedRace"
     ngDefaultControl
   ></election-result>

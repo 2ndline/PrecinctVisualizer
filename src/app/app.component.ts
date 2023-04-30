@@ -12,6 +12,7 @@ import {
   Choice,
   Dates,
   Election,
+  Precincts,
   Race,
 } from './models/precinct-voter-data.model';
 import { Precinct } from './models/precinct.model';
@@ -223,5 +224,11 @@ if (DistrictAPrecincts.includes(precinctId)) {
           console.log('highlighted race');
         });
     }
+  }
+
+  onPrecinctsLoaded(precincts: Precincts) {
+    console.log('Precincts loaded');
+    // Do something when the precincts are loaded
+    this.drawMap();
   }
 }
