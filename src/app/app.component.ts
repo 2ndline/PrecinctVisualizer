@@ -118,10 +118,13 @@ export class AppComponent implements OnInit {
           let choice = p.Choice.reduce((max: Choice, current: Choice) => {
             return +current.VoteTotal > +max.VoteTotal ? current : max;
           });
-          pr.layer['options'].fillColor =
-            '#' + choice.Color.slice(2).padStart(6, '0');
-          pr.layer['options'].fillOpacity =
-            +choice.VoteTotal / +p.VoterCountVoted;
+          if (choice) {
+            console.log(choice);
+            pr.layer['options'].fillColor =
+              '#' + choice.Color.slice(2).padStart(6, '0');
+            pr.layer['options'].fillOpacity =
+              +choice.VoteTotal / +p.VoterCountVoted;
+          }
         }
       }
     };
