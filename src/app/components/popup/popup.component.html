@@ -1,1 +1,33 @@
-<p> {{ message }}</p>
+<div>
+  <table>
+    <tr>
+      <td>
+        <div>
+          {{ precinct.Precinct }}
+        </div>
+      </td>
+      <td>
+        <div>
+          {{ +precinct.VoterCountVoted }} -
+          {{
+            (+precinct.VoterCountVoted / +precinct.VoterCountQualified) * 100
+              | number: '1.0-2'
+          }}% turnout
+        </div>
+      </td>
+    </tr>
+    <tr
+      *ngFor="let choice of precinct.Choice"
+      [style.background-color]="'#' + choice.Color.slice(2).padStart(6, '0')"
+    >
+      <td>
+        <div>
+          {{ choice.Desc }}
+        </div>
+        <div>
+          {{ choice.VoteTotal }}
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>

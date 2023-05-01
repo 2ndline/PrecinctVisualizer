@@ -1,9 +1,4 @@
-import {
-  ChangeDetectorRef,
-  Component,
-  EventEmitter,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 // @ts-ignore
 import * as L from 'leaflet';
 import { HttpClient } from '@angular/common/http';
@@ -12,19 +7,12 @@ import {
   Choice,
   Election,
   Precincts,
-  Precinct,
   Race,
 } from './models/precinct-voter-data.model';
 import { SOSDataService } from './services/sos-data.service';
 import { formatDate } from '@angular/common';
 import { MapPrecinct } from './models/precinct.model';
-/***
- * TODO:
- * 1) prompt for date of election, race, pull results from sec of state office static pages
- * 2) refactor logic, cleanup
- * 3) remove API key (don't really care)
- * 4)
- */
+import { PopupComponent } from './components/popup/popup.component';
 
 @Component({
   selector: 'my-app',
@@ -97,6 +85,7 @@ export class AppComponent implements OnInit {
   public precinctUrl: string =
     'https://opendata.arcgis.com/datasets/ca0f4261673541d798551f5cddc54bd6_0.geojson';
 
+  private popupContent = new PopupComponent();
   //with precincts loaded, draw on the map the precinct geo
   drawMap() {
     var prs = this.precincts;
@@ -114,7 +103,12 @@ export class AppComponent implements OnInit {
           (precinct) => precinct.Precinct == precinctId
         );
         if (p && p.Choice) {
-          pr.layer.bindPopup(`<pre>${JSON.stringify(p, null, 2)}</pre>`);
+          this.popupContent.precinct = p;
+          const popup = L.popup().setContent(
+            this.popupContent.elementRef.nativeElement
+          );
+
+          pr.layer.bindPopup(popup);
           let choice = p.Choice.reduce((max: Choice, current: Choice) => {
             return +current.VoteTotal > +max.VoteTotal ? current : max;
           });

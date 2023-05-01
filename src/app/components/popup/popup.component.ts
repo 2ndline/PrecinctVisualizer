@@ -1,16 +1,15 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Precinct } from '../../models/precinct-voter-data.model';
 
 @Component({
-  selector: 'app-popup',
+  selector: 'popup',
   templateUrl: './popup.component.html',
-  styleUrls: ['./popup.component.css']
+  styleUrls: ['./popup.component.css'],
 })
 export class PopupComponent implements OnInit {
-  @Input() message = 'Default Pop-up Message.';
+  @Input() precinct: Precinct;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
