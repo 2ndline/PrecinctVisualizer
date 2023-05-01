@@ -148,8 +148,20 @@ export class AppComponent implements OnInit {
             popupComponent = popupComponent.concat(val);
           });
           popupComponent = popupComponent.concat('</table></div>');
-          console.log(popupComponent);
           pr.layer.bindPopup(popupComponent);
+          // Get the center lat/lng of the layer
+          const center = pr.layer.getBounds().getCenter();
+
+          // Create the DivIcon with the vote total
+          const divIcon = L.divIcon({
+            className: 'my-div-icon',
+            html: `<div style="font-size: small;">${p.VoterCountVoted}</div>`,
+          });
+
+          // Create the marker with the DivIcon and position it at the center of the layer
+          const marker = L.marker(center, { icon: divIcon });
+          marker.addTo(this.map);
+
           let choice = p.Choice.reduce((max: Choice, current: Choice) => {
             return +current.VoteTotal > +max.VoteTotal ? current : max;
           });
@@ -162,7 +174,7 @@ export class AppComponent implements OnInit {
           }
         }
       }
-    };
+    }.bind(this);
 
     if (this.precintGeoJson) {
       this.precintGeoJson.clearLayers();
