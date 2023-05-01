@@ -24,7 +24,8 @@
     </div>
     <div *ngIf="earlyVoting">
       <div>
-        <div *ngFor="let choice of earlyVoting.Choice">
+        <div *ngFor="let choice of earlyVoting.Choice"
+        [style.background-color]="'#' + choice.Color.slice(2).padStart(6, '0')">
           {{ choice.VoteTotal }}
         </div>
       </div>
