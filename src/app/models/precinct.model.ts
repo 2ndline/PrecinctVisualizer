@@ -1,8 +1,6 @@
-namespace MapPrecinct {
-  export interface Precinct {
-    id: string;
-    feature?: any;
-    layer: any;
-    data?: any;
-  }
+export interface MapPrecinct {
+  id: string;
+  feature?: any;
+  layer: any;
+  data?: any;
 }

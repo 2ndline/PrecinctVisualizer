@@ -10,15 +10,14 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import {
   Choice,
-  Dates,
   Election,
   Precincts,
+  Precinct,
   Race,
 } from './models/precinct-voter-data.model';
-import { Precinct } from './models/precinct.model';
 import { SOSDataService } from './services/sos-data.service';
 import { formatDate } from '@angular/common';
-
+import { MapPrecinct } from './models/precinct.model';
 /***
  * TODO:
  * 1) prompt for date of election, race, pull results from sec of state office static pages
@@ -46,7 +45,7 @@ export class AppComponent implements OnInit {
     private dataService: SOSDataService,
     private cdr: ChangeDetectorRef
   ) {}
-  public precincts: Precinct[] = [];
+  public precincts: MapPrecinct[] = [];
   precintGeoJson: L.GeoJSON<any>;
   private dataLoaded: BehaviorSubject<boolean> = new BehaviorSubject(true);
 
@@ -98,18 +97,13 @@ export class AppComponent implements OnInit {
   public precinctUrl: string =
     'https://opendata.arcgis.com/datasets/ca0f4261673541d798551f5cddc54bd6_0.geojson';
 
-  getFillColor(precinct: SOS.Precinct): string{
-    let choice = precinct.Choice.reduce((max: Choice, current: Choice) => {return (+current.VoteTotal > +max.VoteTotal) ? current : max;});
-    return '#' + choice.Color.slice(2).padStart(6, '0');
-  }
-
   //with precincts loaded, draw on the map the precinct geo
   drawMap() {
     var prs = this.precincts;
     var pResults = this.precinctResults;
     let eachFunc = function (f: any, l: any) {
       const precinctId = f.properties.PRECINCTID;
-      let pr = {} as Precinct;
+      let pr = {} as MapPrecinct;
       if (prs[precinctId] != null) {
         pr = prs[precinctId];
       }
@@ -121,8 +115,13 @@ export class AppComponent implements OnInit {
         );
         if (p && p.Choice) {
           pr.layer.bindPopup(`<pre>${JSON.stringify(p, null, 2)}</pre>`);
-          pr.layer['options'].fillColor = this.getFillColor(p);
-          pr.layer['options'].fillOpacity = this.getFillOpacity(p);
+          let choice = p.Choice.reduce((max: Choice, current: Choice) => {
+            return +current.VoteTotal > +max.VoteTotal ? current : max;
+          });
+          pr.layer['options'].fillColor =
+            '#' + choice.Color.slice(2).padStart(6, '0');
+          pr.layer['options'].fillOpacity =
+            +choice.VoteTotal / +p.VoterCountVoted;
         }
       }
     };
