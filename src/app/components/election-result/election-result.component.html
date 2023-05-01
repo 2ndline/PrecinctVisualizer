@@ -13,7 +13,9 @@
         *ngFor="let choice of value.Choice"
         [style.background-color]="'#' + choice.Color.slice(2).padStart(6, '0')"
       >
-        {{ choice.Desc }} : {{ choice.VoteTotal }}
+        {{ choice.Desc }} : {{ choice.VoteTotal }} ({{
+          (+choice.VoteTotal / +value.VoterCountVoted) * 100 | number: '1.0-2'
+        }}%)
       </div>
     </div>
   </div>
@@ -30,7 +32,9 @@
             '#' + choice.Color.slice(2).padStart(6, '0')
           "
         >
-          {{ choice.VoteTotal }}
+          {{ choice.VoteTotal }} ({{
+            (+choice.VoteTotal / +value.VoterCountVoted) * 100 | number: '1.0-2'
+          }}%)
         </div>
       </div>
     </div>
