@@ -28,7 +28,7 @@ export class SOSDataService {
 
   orleans2021Url = './assets/2021/elections-results.json';
   candidates2021Url = './assets/2021/candidates-results.json';
-  precincts2021Url = './assets/2021/precincts-results.json';
+  precincts2021Url = './assets/2021/precincts-results-districta.json';
   public fetchDatesFromSOS() {
     return this.http
       .get(this.electionDatesUrl)
@@ -51,13 +51,10 @@ export class SOSDataService {
       .pipe(map((response: CandidatesResponse) => response.Races));
   }
 
-  public fetchPrecinctResultsFromSOS(
-    electionDate: string,
-    raceId: string
-  ) {
+  public fetchPrecinctResultsFromSOS(electionDate: string, raceId: string) {
     let url = this.precinctsOrleansUrl
       .replace('XX', electionDate)
-      .replace('YY', raceId)
+      .replace('YY', raceId);
     url = this.precincts2021Url;
     return this.http
       .get(url)
