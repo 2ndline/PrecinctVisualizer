@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, Renderer2 } from '@angular/core';
 // @ts-ignore
 import * as L from 'leaflet';
 import { HttpClient } from '@angular/common/http';
@@ -31,7 +31,8 @@ export class AppComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private dataService: SOSDataService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private renderer: Renderer2
   ) {}
   public precincts: MapPrecinct[] = [];
   precintGeoJson: L.GeoJSON<any>;
@@ -85,7 +86,6 @@ export class AppComponent implements OnInit {
   public precinctUrl: string =
     'https://opendata.arcgis.com/datasets/ca0f4261673541d798551f5cddc54bd6_0.geojson';
 
-  private popupContent = new PopupComponent();
   //with precincts loaded, draw on the map the precinct geo
   drawMap() {
     var prs = this.precincts;
@@ -103,12 +103,17 @@ export class AppComponent implements OnInit {
           (precinct) => precinct.Precinct == precinctId
         );
         if (p && p.Choice) {
-          this.popupContent.precinct = p;
-          const popup = L.popup().setContent(
-            this.popupContent.elementRef.nativeElement
-          );
+          const popupContent = this.renderer.createElement('div');
+          const popupComponent = this.renderer.createElement('app-my-popup');
+          this.renderer.setProperty(popupComponent, 'precinct', 'p');
 
-          pr.layer.bindPopup(popup);
+          const popupComponentRef =
+            this.renderer.createComponent(popupComponent);
+          this.renderer.appendChild(
+            popupContent,
+            popupComponentRef.location.nativeElement
+          );
+          pr.layer.bindPopup(popupContent);
           let choice = p.Choice.reduce((max: Choice, current: Choice) => {
             return +current.VoteTotal > +max.VoteTotal ? current : max;
           });
