@@ -110,8 +110,11 @@ export class AppComponent implements OnInit {
     <tr>
       <td>
         <div>
-          ${p.Precinct} - ${+p.VoterCountVoted} votes
+          ${p.Precinct}
         </div>
+      </td>
+      <td>
+          <div>${+p.VoterCountVoted} votes</div>
       </td>
       <td>
         <div>
@@ -133,6 +136,11 @@ export class AppComponent implements OnInit {
         <td>
           <div>
             ${choice.VoteTotal}
+          </div>
+        </td>
+        <td>
+          <div>
+          ${((+choice.VoteTotal / +p.VoterCountVoted) * 100).toFixed(1)}%
           </div>
         </td>
       </tr>

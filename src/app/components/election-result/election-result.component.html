@@ -32,9 +32,7 @@
             '#' + choice.Color.slice(2).padStart(6, '0')
           "
         >
-          {{ choice.VoteTotal }} ({{
-            (+choice.VoteTotal / +value.VoterCountVoted) * 100 | number: '1.0-2'
-          }}%)
+          {{ choice.VoteTotal }}
         </div>
       </div>
     </div>
