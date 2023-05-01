@@ -98,22 +98,50 @@ export class AppComponent implements OnInit {
       }
       pr.feature = f;
       pr.layer = l;
+      let popupComponent = '';
       if (pResults) {
         let p = pResults.Precinct.find(
           (precinct) => precinct.Precinct == precinctId
         );
         if (p && p.Choice) {
-          const popupContent = this.renderer.createElement('div');
-          const popupComponent = this.renderer.createElement('app-my-popup');
-          this.renderer.setProperty(popupComponent, 'precinct', 'p');
-
-          const popupComponentRef =
-            this.renderer.createComponent(popupComponent);
-          this.renderer.appendChild(
-            popupContent,
-            popupComponentRef.location.nativeElement
-          );
-          pr.layer.bindPopup(popupContent);
+          popupComponent = `
+          <div>
+  <table>
+    <tr>
+      <td>
+        <div>
+          ${p.Precinct} - ${+p.VoterCountVoted} votes
+        </div>
+      </td>
+      <td>
+        <div>
+          ${((+p.VoterCountVoted / +p.VoterCountQualified) * 100).toFixed(
+            1
+          )} % turnout
+        </div>
+      </td>
+    </tr>`;
+          //write each choice in as a row
+          p.Choice.forEach((choice) => {
+            let val = `
+      <tr style="background-color: #${choice.Color.slice(2).padStart(6, '0')}">
+        <td>
+          <div>
+            ${choice.Desc}
+          </div>
+        </td>
+        <td>
+          <div>
+            ${choice.VoteTotal}
+          </div>
+        </td>
+      </tr>
+      `;
+            popupComponent = popupComponent.concat(val);
+          });
+          popupComponent = popupComponent.concat('</table></div>');
+          console.log(popupComponent);
+          pr.layer.bindPopup(popupComponent);
           let choice = p.Choice.reduce((max: Choice, current: Choice) => {
             return +current.VoteTotal > +max.VoteTotal ? current : max;
           });
