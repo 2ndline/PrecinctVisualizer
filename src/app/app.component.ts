@@ -71,6 +71,9 @@ export class AppComponent implements OnInit {
     //create subscription for dataLoaded to fire up the map
     this.dataLoaded.subscribe((e) => {
       if (e) {
+        if (this.map) {
+          this.map.remove();
+        }
         this.map = new L.Map('map', {
           layers: [
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -82,17 +85,28 @@ export class AppComponent implements OnInit {
           zoomControl: false,
           zoom: 12,
         });
-        this.setPrecinctLayers();
+        if (!this.json) {
+          this.setPrecinctLayers();
+        } else {
+          this.drawMap();
+        }
       }
     });
+    this.dataLoaded.next(true);
   }
 
   public precinctUrl: string =
     'https://opendata.arcgis.com/datasets/ca0f4261673541d798551f5cddc54bd6_0.geojson';
 
+  getFillColor(precinct: SOS.Precinct): string{
+    let choice = precinct.Choice.reduce((max: Choice, current: Choice) => {return (+current.VoteTotal > +max.VoteTotal) ? current : max;});
+    return '#' + choice.Color.slice(2).padStart(6, '0');
+  }
+
   //with precincts loaded, draw on the map the precinct geo
   drawMap() {
     var prs = this.precincts;
+    var pResults = this.precinctResults;
     let eachFunc = function (f: any, l: any) {
       const precinctId = f.properties.PRECINCTID;
       let pr = {} as Precinct;
@@ -101,10 +115,15 @@ export class AppComponent implements OnInit {
       }
       pr.feature = f;
       pr.layer = l;
-      if (this.precinctResults) {
-        let p = this.precinctResults.find(
-          (precinct: { Precinct: string }) => (precinct.Precinct = precinctId)
+      if (pResults) {
+        let p = pResults.Precinct.find(
+          (precinct) => precinct.Precinct == precinctId
         );
+        if (p && p.Choice) {
+          pr.layer.bindPopup(`<pre>${JSON.stringify(p, null, 2)}</pre>`);
+          pr.layer['options'].fillColor = this.getFillColor(p);
+          pr.layer['options'].fillOpacity = this.getFillOpacity(p);
+        }
       }
     };
 
@@ -149,6 +168,7 @@ if (DistrictAPrecincts.includes(precinctId)) {
 */
 
     if (this.precintGeoJson) {
+      this.precintGeoJson.clearLayers();
       this.precintGeoJson.remove();
     }
 
@@ -234,8 +254,8 @@ if (DistrictAPrecincts.includes(precinctId)) {
 
   onPrecinctsLoaded(precincts: Precincts) {
     console.log('Precincts loaded');
+    console.log(precincts);
     this.precinctResults = precincts;
-    // Do something when the precincts are loaded
-    this.drawMap();
+    this.dataLoaded.next(true);
   }
 }

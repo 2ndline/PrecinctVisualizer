@@ -8,7 +8,11 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { Race, Precincts, Precinct } from '../../models/precinct-voter-data.model';
+import {
+  Race,
+  Precincts,
+  Precinct,
+} from '../../models/precinct-voter-data.model';
 import { SOSDataService } from '../../services/sos-data.service';
 
 @Component({
@@ -20,16 +24,14 @@ export class ElectionResultComponent implements OnInit, OnChanges {
   @Input() value: Race;
   @Output() precinctsLoaded = new EventEmitter<Precincts>();
   public earlyVoting: Precinct;
-  constructor(
-    private cdr: ChangeDetectorRef,
-    private dataService: SOSDataService
-  ) {}
+  constructor(private dataService: SOSDataService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log('change');
     if (changes.value && changes.value.currentValue) {
       // Do something with the new value of highlightedRace
       console.log('change to election result');
+      let choices = this.value.Choice;
       //fetch the election results
       this.dataService
         .fetchPrecinctResultsFromSOS(this.value.ElectionDate, this.value.ID)
@@ -38,18 +40,36 @@ export class ElectionResultComponent implements OnInit, OnChanges {
           result.Precinct.forEach((precinct) => {
             if (precinct.Precinct.startsWith('Early')) {
               this.earlyVoting = precinct;
-            }else{
+            } else {
               //replace slash with hyphen, leading zero
-              precinct.Precinct =
-                parseInt(precinct.Precinct.split('/')[0]).toString() +
-                '-' +
-                parseInt(precinct.Precinct.split('/')[1]).toString();
+              precinct.Precinct = this.formatPrecinct(precinct.Precinct);
             }
-            console.log(precinct);
+            precinct.Choice.forEach((precinctChoice) => {
+              const raceChoice = choices.find(
+                (rc) => rc.ID == precinctChoice.ID
+              );
+              if (raceChoice) {
+                let total = precinctChoice.VoteTotal;
+                let mergedRace = { ...precinctChoice, ...raceChoice };
+                Object.assign(precinctChoice, mergedRace);
+                precinctChoice.VoteTotal = total;
+              }
+            });
           });
+          console.log('emit precincts');
           this.precinctsLoaded.emit(result);
         });
     }
   }
+  formatPrecinct(precinct: string): string {
+    const parts = precinct.split('/');
+    let firstPart = parts[0].replace(/^0+/, ''); // remove leading zeros
+    let secondPart = parts[1].replace(/^0+/, ''); // remove leading zeros
+    if (secondPart.endsWith('A')) {
+      secondPart = secondPart.slice(0, -1) + 'A'; // keep the A at the end
+    }
+    return `${firstPart}-${secondPart}`;
+  }
+
   ngOnInit(): void {}
 }
